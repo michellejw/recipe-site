@@ -1,16 +1,20 @@
 export interface Recipe {
+  // Required fields
   id: string;
   title: string;
   description: string;
   image: string;
-  prepTime: number; // in minutes
-  cookTime: number; // in minutes
-  servings: number;
-  difficulty: 'Easy' | 'Medium' | 'Hard';
-  category: string;
-  tags: string[];
   ingredients: Ingredient[];
   instructions: string[];
+  dateAdded: string; // ISO date string
+  
+  // Optional fields
+  prepTime?: number; // in minutes
+  cookTime?: number; // in minutes
+  servings?: number;
+  category?: string;
+  tags?: string[];
+  tryThis?: string[]; // Tips, variations, substitutions
 }
 
 export interface Ingredient {

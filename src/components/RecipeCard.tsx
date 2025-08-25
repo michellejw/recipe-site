@@ -17,7 +17,7 @@ export function RecipeCard({
   matchingIngredients = [],
   missingIngredients = 0
 }: RecipeCardProps) {
-  const totalTime = recipe.prepTime + recipe.cookTime;
+  const totalTime = (recipe.prepTime || 0) + (recipe.cookTime || 0);
   
   return (
     <Card 
@@ -30,11 +30,6 @@ export function RecipeCard({
           alt={recipe.title}
           className="w-full h-full object-cover"
         />
-        <div className="absolute top-3 right-3">
-          <Badge variant={recipe.difficulty === 'Easy' ? 'default' : recipe.difficulty === 'Medium' ? 'secondary' : 'destructive'}>
-            {recipe.difficulty}
-          </Badge>
-        </div>
         
         {/* Ingredient Match Indicator */}
         {matchingIngredients.length > 0 && (
@@ -64,32 +59,40 @@ export function RecipeCard({
       
       <CardContent className="pt-0">
         <div className="flex items-center justify-between text-sm text-muted-foreground mb-3">
-          <div className="flex items-center gap-1">
-            <Clock className="h-4 w-4" />
-            <span>{totalTime}m</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <Users className="h-4 w-4" />
-            <span>{recipe.servings}</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <ChefHat className="h-4 w-4" />
-            <span>{recipe.category}</span>
-          </div>
-        </div>
-        
-        <div className="flex flex-wrap gap-1">
-          {recipe.tags.slice(0, 3).map((tag) => (
-            <Badge key={tag} variant="outline" className="text-xs">
-              {tag}
-            </Badge>
-          ))}
-          {recipe.tags.length > 3 && (
-            <Badge variant="outline" className="text-xs">
-              +{recipe.tags.length - 3}
-            </Badge>
+          {totalTime > 0 && (
+            <div className="flex items-center gap-1">
+              <Clock className="h-4 w-4" />
+              <span>{totalTime}m</span>
+            </div>
+          )}
+          {recipe.servings && (
+            <div className="flex items-center gap-1">
+              <Users className="h-4 w-4" />
+              <span>{recipe.servings}</span>
+            </div>
+          )}
+          {recipe.category && (
+            <div className="flex items-center gap-1">
+              <ChefHat className="h-4 w-4" />
+              <span>{recipe.category}</span>
+            </div>
           )}
         </div>
+        
+        {recipe.tags && recipe.tags.length > 0 && (
+          <div className="flex flex-wrap gap-1">
+            {recipe.tags.slice(0, 3).map((tag) => (
+              <Badge key={tag} variant="outline" className="text-xs">
+                {tag}
+              </Badge>
+            ))}
+            {recipe.tags.length > 3 && (
+              <Badge variant="outline" className="text-xs">
+                +{recipe.tags.length - 3}
+              </Badge>
+            )}
+          </div>
+        )}
       </CardContent>
     </Card>
   );

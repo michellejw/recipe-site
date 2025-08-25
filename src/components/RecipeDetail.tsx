@@ -135,7 +135,7 @@ export function RecipeDetail({
     return acc;
   }, { have: 0, need: 0 });
   
-  const totalTime = recipe.prepTime + recipe.cookTime;
+  const totalTime = (recipe.prepTime || 0) + (recipe.cookTime || 0);
 
   const toggleStep = (index: number) => {
     const newCompleted = new Set(completedSteps);
@@ -169,46 +169,53 @@ export function RecipeDetail({
         
         <CardHeader>
           <div className="space-y-4">
-            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
-              <div className="space-y-2">
-                <h1 className="text-2xl sm:text-3xl">{recipe.title}</h1>
-                <p className="text-muted-foreground">{recipe.description}</p>
-              </div>
-              <Badge variant={recipe.difficulty === 'Easy' ? 'default' : recipe.difficulty === 'Medium' ? 'secondary' : 'destructive'}>
-                {recipe.difficulty}
-              </Badge>
+            <div className="space-y-2">
+              <h1 className="text-2xl sm:text-3xl">{recipe.title}</h1>
+              <p className="text-muted-foreground">{recipe.description}</p>
             </div>
             
             <div className="flex flex-wrap gap-4 text-sm">
-              <div className="flex items-center gap-2">
-                <Clock className="h-4 w-4 text-primary" />
-                <span>Prep: {recipe.prepTime}m</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Clock className="h-4 w-4 text-primary" />
-                <span>Cook: {recipe.cookTime}m</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Clock className="h-4 w-4 text-primary" />
-                <span>Total: {totalTime}m</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Users className="h-4 w-4 text-primary" />
-                <span>Serves {recipe.servings}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <ChefHat className="h-4 w-4 text-primary" />
-                <span>{recipe.category}</span>
-              </div>
+              {recipe.prepTime !== undefined && recipe.prepTime > 0 && (
+                <div className="flex items-center gap-2">
+                  <Clock className="h-4 w-4 text-primary" />
+                  <span>Prep: {recipe.prepTime}m</span>
+                </div>
+              )}
+              {recipe.cookTime !== undefined && recipe.cookTime > 0 && (
+                <div className="flex items-center gap-2">
+                  <Clock className="h-4 w-4 text-primary" />
+                  <span>Cook: {recipe.cookTime}m</span>
+                </div>
+              )}
+              {totalTime > 0 && (
+                <div className="flex items-center gap-2">
+                  <Clock className="h-4 w-4 text-primary" />
+                  <span>Total: {totalTime}m</span>
+                </div>
+              )}
+              {recipe.servings && (
+                <div className="flex items-center gap-2">
+                  <Users className="h-4 w-4 text-primary" />
+                  <span>Serves {recipe.servings}</span>
+                </div>
+              )}
+              {recipe.category && (
+                <div className="flex items-center gap-2">
+                  <ChefHat className="h-4 w-4 text-primary" />
+                  <span>{recipe.category}</span>
+                </div>
+              )}
             </div>
             
-            <div className="flex flex-wrap gap-2">
-              {recipe.tags.map((tag) => (
-                <Badge key={tag} variant="outline">
-                  {tag}
-                </Badge>
-              ))}
-            </div>
+            {recipe.tags && recipe.tags.length > 0 && (
+              <div className="flex flex-wrap gap-2">
+                {recipe.tags.map((tag) => (
+                  <Badge key={tag} variant="outline">
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+            )}
           </div>
         </CardHeader>
       </Card>
@@ -372,6 +379,28 @@ export function RecipeDetail({
             ))}
           </CardContent>
         </Card>
+        
+        {/* Try This Section */}
+        {recipe.tryThis && recipe.tryThis.length > 0 && (
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <ChefHat className="h-5 w-5" />
+                Try This
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2">
+                {recipe.tryThis.map((tip, index) => (
+                  <li key={index} className="flex items-start gap-2">
+                    <span className="text-primary mt-1">•</span>
+                    <span className="text-sm">{tip}</span>
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
+        )}
       </div>
     </div>
   );

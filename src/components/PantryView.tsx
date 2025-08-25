@@ -1,11 +1,11 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { Search, X, ChefHat } from 'lucide-react';
 import { Input } from './ui/input';
 import { Badge } from './ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import { RecipeCard } from './RecipeCard';
-import { mockRecipes } from './recipe-data';
+import { recipeService } from '../lib/recipeService';
 import { Recipe, Ingredient } from './types';
 
 interface PantryViewProps {
@@ -34,11 +34,22 @@ export function PantryView({
   shoppingList,
   setShoppingList
 }: PantryViewProps) {
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  // Load recipes on mount
+  useEffect(() => {
+    recipeService.getAllRecipes().then(loadedRecipes => {
+      setRecipes(loadedRecipes);
+      setLoading(false);
+    });
+  }, []);
+
   // Extract all unique ingredient names from recipes for search suggestions
   const allIngredientNames = useMemo(() => {
     const ingredientNames = new Set<string>();
     
-    mockRecipes.forEach(recipe => {
+    recipes.forEach(recipe => {
       recipe.ingredients.forEach(ingredient => {
         // Get the full item name, preserving specificity like "sea salt" vs "table salt"
         let itemName = ingredient.item.toLowerCase().trim();
@@ -69,7 +80,7 @@ export function PantryView({
     });
     
     return Array.from(ingredientNames).sort();
-  }, []);
+  }, [recipes]);
 
   // Filter ingredient names based on search
   const filteredIngredientNames = useMemo(() => {
@@ -90,7 +101,7 @@ export function PantryView({
 
     const recipesWithScores: RecipeWithScore[] = [];
 
-    mockRecipes.forEach(recipe => {
+    recipes.forEach(recipe => {
       const userIngredientNames = selectedIngredients.map(ing => ing.item.toLowerCase().trim());
       const matchingIngredients = userIngredientNames.filter(userIng => {
         return recipe.ingredients.some(recipeIng => {
@@ -134,7 +145,7 @@ export function PantryView({
       }
       return a.totalIngredients - b.totalIngredients;
     });
-  }, [selectedIngredients]);
+  }, [selectedIngredients, recipes]);
 
   const addIngredient = (ingredientName: string) => {
     // Check if already exists

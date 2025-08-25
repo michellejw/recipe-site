@@ -1,11 +1,11 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { Search, X, BookOpen } from 'lucide-react';
 import { Input } from './ui/input';
 import { Badge } from './ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import { RecipeCard } from './RecipeCard';
-import { mockRecipes } from './recipe-data';
+import { recipeService } from '../lib/recipeService';
 import { Recipe } from './types';
 
 interface RecipesViewProps {
@@ -15,19 +15,29 @@ interface RecipesViewProps {
 export function RecipesView({ onRecipeSelect }: RecipesViewProps) {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  // Load recipes on mount
+  useEffect(() => {
+    recipeService.getAllRecipes().then(loadedRecipes => {
+      setRecipes(loadedRecipes);
+      setLoading(false);
+    });
+  }, []);
 
   // Extract all unique tags from recipes
   const allTags = useMemo(() => {
     const tagSet = new Set<string>();
-    mockRecipes.forEach(recipe => {
-      recipe.tags.forEach(tag => tagSet.add(tag));
+    recipes.forEach(recipe => {
+      recipe.tags?.forEach(tag => tagSet.add(tag));
     });
     return Array.from(tagSet).sort();
-  }, []);
+  }, [recipes]);
 
   // Filter recipes based on search query and selected tags
   const filteredRecipes = useMemo(() => {
-    let filtered = mockRecipes;
+    let filtered = recipes;
 
     // Filter by search query (title, description, ingredients)
     if (searchQuery.trim()) {
@@ -47,12 +57,12 @@ export function RecipesView({ onRecipeSelect }: RecipesViewProps) {
     // Filter by selected tags
     if (selectedTags.length > 0) {
       filtered = filtered.filter(recipe =>
-        selectedTags.every(tag => recipe.tags.includes(tag))
+        selectedTags.every(tag => recipe.tags?.includes(tag))
       );
     }
 
     return filtered;
-  }, [searchQuery, selectedTags]);
+  }, [searchQuery, selectedTags, recipes]);
 
   const handleTagToggle = (tag: string) => {
     setSelectedTags(prev => 
@@ -152,8 +162,7 @@ export function RecipesView({ onRecipeSelect }: RecipesViewProps) {
             {hasActiveFilters ? 'Search Results' : 'All Recipes'}
           </h2>
           <span className="text-sm text-muted-foreground">
-            {filteredRecipes.length} recipe{filteredRecipes.length !== 1 ? 's' : ''} 
-            {hasActiveFilters ? ' found' : ''}
+            {loading ? 'Loading...' : `${filteredRecipes.length} recipe${filteredRecipes.length !== 1 ? 's' : ''} ${hasActiveFilters ? ' found' : ''}`}
           </span>
         </div>
         
