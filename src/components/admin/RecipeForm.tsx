@@ -17,7 +17,6 @@ interface RecipeFormProps {
   loading?: boolean;
 }
 
-const PLACEHOLDER_IMAGE = 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800';
 
 export function RecipeForm({ recipe, onSave, onCancel, loading = false }: RecipeFormProps) {
   const [formData, setFormData] = useState({
@@ -87,7 +86,7 @@ export function RecipeForm({ recipe, onSave, onCancel, loading = false }: Recipe
     const processedData = {
       title: formData.title.trim(),
       description: formData.description.trim(),
-      image: formData.image.trim() || PLACEHOLDER_IMAGE,
+      image: formData.image.trim() || '',
       ...(formData.prepTime && { prepTime: parseInt(formData.prepTime) }),
       ...(formData.cookTime && { cookTime: parseInt(formData.cookTime) }),
       ...(formData.servings && { servings: parseInt(formData.servings) }),

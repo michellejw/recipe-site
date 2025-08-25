@@ -202,6 +202,7 @@ export function RecipeManager({ onLogout }: RecipeManagerProps) {
                   <ImageWithFallback
                     src={recipe.image}
                     alt={recipe.title}
+                    recipeTitle={recipe.title}
                     className="w-full h-full object-cover"
                   />
                 </div>

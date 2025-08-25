@@ -163,6 +163,7 @@ export function RecipeDetail({
           <ImageWithFallback
             src={recipe.image}
             alt={recipe.title}
+            recipeTitle={recipe.title}
             className="w-full h-full object-cover"
           />
         </div>
