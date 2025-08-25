@@ -65,19 +65,19 @@ Migrating from static recipe data in TypeScript files to JSON file storage with 
 - [x] Save migrated data to `public/recipes.json`
 
 ### 6. Admin UI
-- [ ] Create admin route (`/admin`) with passcode protection
-- [ ] Add environment variable for admin passcode
-- [ ] Create forms for:
-  - [ ] Adding new recipes
-  - [ ] Editing existing recipes
-  - [ ] Deleting recipes
-- [ ] Add validation and error handling
-- [ ] Include support for `tryThis` field (dynamic array input)
-- [ ] Create API endpoint to save JSON (development only)
+- [x] Create admin route (`/admin`) with passcode protection
+- [x] Add environment variable for admin passcode
+- [x] Create forms for:
+  - [x] Adding new recipes
+  - [x] Editing existing recipes
+  - [x] Deleting recipes
+- [x] Add validation and error handling
+- [x] Include support for `tryThis` field (dynamic array input)
+- [x] Create API endpoint to save JSON (development only)
 
 ### 7. Development Setup
-- [ ] Add development-only API route for saving JSON
-- [ ] Ensure JSON updates work locally
+- [x] Add development-only API route for saving JSON
+- [x] Ensure JSON updates work locally
 - [ ] For production: manual JSON updates or GitHub-based workflow
 - [ ] Document deployment process
 
@@ -88,7 +88,6 @@ Migrating from static recipe data in TypeScript files to JSON file storage with 
 - [ ] Write component tests for recipe display components
 - [ ] Write integration tests for recipe filtering/searching
 - [ ] Write admin UI tests (form validation, CRUD operations)
-- [ ] Set up end-to-end tests with Playwright (optional)
 - [ ] Configure CI/CD testing pipeline
 
 ### 9. Validation & Manual Testing

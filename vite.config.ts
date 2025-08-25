@@ -2,9 +2,45 @@
   import { defineConfig } from 'vite';
   import react from '@vitejs/plugin-react-swc';
   import * as path from 'path';
+  import { writeFileSync } from 'fs';
 
   export default defineConfig({
-    plugins: [react()],
+    plugins: [
+      react(),
+      // Development-only API routes
+      {
+        name: 'recipe-api',
+        configureServer(server) {
+          server.middlewares.use('/api/save-recipes', (req, res, next) => {
+            if (req.method === 'POST') {
+              let body = '';
+              req.on('data', chunk => {
+                body += chunk.toString();
+              });
+              req.on('end', () => {
+                try {
+                  const recipes = JSON.parse(body);
+                  const recipesPath = path.join(__dirname, 'public', 'recipes.json');
+                  writeFileSync(recipesPath, JSON.stringify(recipes, null, 2));
+                  
+                  res.setHeader('Content-Type', 'application/json');
+                  res.end(JSON.stringify({ success: true }));
+                } catch (error) {
+                  res.statusCode = 500;
+                  res.setHeader('Content-Type', 'application/json');
+                  res.end(JSON.stringify({ 
+                    success: false, 
+                    error: error instanceof Error ? error.message : 'Unknown error'
+                  }));
+                }
+              });
+            } else {
+              next();
+            }
+          });
+        }
+      }
+    ],
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
       alias: {

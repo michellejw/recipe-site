@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { RecipeDetail } from "./components/RecipeDetail";
 import { PantryView } from "./components/PantryView";
 import { ShoppingListView } from "./components/ShoppingListView";
 import { RecipesView } from "./components/RecipesView";
+import { AdminLogin } from "./components/admin/AdminLogin";
+import { RecipeManager } from "./components/admin/RecipeManager";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./components/ui/tabs";
 import { Recipe, Ingredient } from "./components/types";
 
@@ -10,6 +12,8 @@ export default function App() {
   const [selectedRecipe, setSelectedRecipe] =
     useState<Recipe | null>(null);
   const [activeTab, setActiveTab] = useState("recipes");
+  const [currentRoute, setCurrentRoute] = useState('');
+  const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(false);
   
   // Pantry state - now stores ingredient objects with quantities
   const [selectedIngredients, setSelectedIngredients] = useState<Ingredient[]>([]);
@@ -17,6 +21,59 @@ export default function App() {
   
   // Shopping list state - now stores ingredient objects with quantities
   const [shoppingList, setShoppingList] = useState<Ingredient[]>([]);
+
+  // Simple routing based on URL hash
+  useEffect(() => {
+    const handleHashChange = () => {
+      setCurrentRoute(window.location.hash.slice(1)); // Remove the '#'
+    };
+    
+    // Set initial route
+    handleHashChange();
+    
+    // Listen for hash changes
+    window.addEventListener('hashchange', handleHashChange);
+    
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  // Check for existing admin session
+  useEffect(() => {
+    if (currentRoute === 'admin') {
+      const session = localStorage.getItem('recipe-admin-session');
+      if (session) {
+        // Check if session is still valid (within 24 hours)
+        const sessionTime = parseInt(session);
+        const now = Date.now();
+        const twentyFourHours = 24 * 60 * 60 * 1000;
+        
+        if (now - sessionTime < twentyFourHours) {
+          setIsAdminAuthenticated(true);
+        } else {
+          localStorage.removeItem('recipe-admin-session');
+        }
+      }
+    }
+  }, [currentRoute]);
+
+  const handleAdminLogin = (success: boolean) => {
+    if (success) {
+      setIsAdminAuthenticated(true);
+    }
+  };
+
+  const handleAdminLogout = () => {
+    setIsAdminAuthenticated(false);
+    window.location.hash = '';
+  };
+
+  // Admin routes
+  if (currentRoute === 'admin') {
+    if (!isAdminAuthenticated) {
+      return <AdminLogin onLogin={handleAdminLogin} />;
+    }
+    return <RecipeManager onLogout={handleAdminLogout} />;
+  }
 
   if (selectedRecipe) {
     return (
@@ -154,6 +211,18 @@ export default function App() {
           </TabsContent>
         </Tabs>
       </main>
+
+      {/* Admin access button (dev only) */}
+      {import.meta.env.DEV && (
+        <footer className="py-8 text-center">
+          <a 
+            href="#admin" 
+            className="inline-flex items-center px-3 py-2 text-xs text-muted-foreground/70 hover:text-muted-foreground border border-border/50 rounded-md hover:bg-accent/50 transition-colors"
+          >
+            Admin Access
+          </a>
+        </footer>
+      )}
     </div>
   );
 }
