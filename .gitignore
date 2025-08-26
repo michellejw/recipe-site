@@ -93,7 +93,7 @@ dist
 
 # Gatsby files
 .cache/
-public
+# public (commented out - we need public/recipes.json for our app)
 
 # Storybook build outputs
 .out

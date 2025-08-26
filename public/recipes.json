@@ -1,0 +1,431 @@
+[
+  {
+    "id": "1",
+    "title": "Sourdough Starter & Bread",
+    "description": "Make your own sourdough starter from scratch and bake a rustic loaf",
+    "image": "https://images.unsplash.com/photo-1597604396383-b8ca64ed8fa7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb3VyZG91Z2glMjBicmVhZCUyMHJ1c3RpY3xlbnwxfHx8fDE3NTYwNjc4ODR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "ingredients": [
+      {
+        "amount": "2",
+        "unit": "cups",
+        "item": "bread flour"
+      },
+      {
+        "amount": "1",
+        "unit": "cup",
+        "item": "warm water"
+      },
+      {
+        "amount": "1/2",
+        "unit": "cup",
+        "item": "active sourdough starter"
+      },
+      {
+        "amount": "1",
+        "unit": "tsp",
+        "item": "salt"
+      },
+      {
+        "amount": "1",
+        "unit": "tbsp",
+        "item": "olive oil"
+      }
+    ],
+    "instructions": [
+      "Feed your sourdough starter 4-8 hours before baking",
+      "Mix flour and salt in a large bowl",
+      "Combine water, starter, and olive oil in a separate bowl",
+      "Pour wet ingredients into dry and mix until shaggy dough forms",
+      "Knead for 8-10 minutes until smooth and elastic",
+      "Place in oiled bowl, cover, and let rise for 4-6 hours",
+      "Shape into a boule and place seam-side down in a banneton or bowl",
+      "Cover and refrigerate overnight",
+      "Preheat Dutch oven to 450°F",
+      "Score the dough and bake covered for 30 minutes",
+      "Remove lid and bake 15 more minutes until golden"
+    ],
+    "dateAdded": "2025-08-25T11:12:59.091Z",
+    "prepTime": 30,
+    "cookTime": 45,
+    "servings": 8,
+    "category": "Bread & Baking",
+    "tags": [
+      "fermented",
+      "artisan",
+      "homemade"
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Homemade Kimchi",
+    "description": "Fermented Korean cabbage with DIY spice blend",
+    "image": "https://images.unsplash.com/photo-1540138279543-b3728f037467?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxraW1jaGklMjBmZXJtZW50ZWQlMjB2ZWdldGFibGVzfGVufDF8fHx8MTc1NjA2Nzg4NXww&ixlib=rb-4.1.0&q=80&w=1080",
+    "ingredients": [
+      {
+        "amount": "1",
+        "unit": "head",
+        "item": "napa cabbage",
+        "notes": "about 2 lbs"
+      },
+      {
+        "amount": "1/4",
+        "unit": "cup",
+        "item": "sea salt"
+      },
+      {
+        "amount": "2",
+        "unit": "tbsp",
+        "item": "gochugaru (Korean chili flakes)"
+      },
+      {
+        "amount": "6",
+        "unit": "cloves",
+        "item": "garlic, minced"
+      },
+      {
+        "amount": "1",
+        "unit": "inch",
+        "item": "fresh ginger, grated"
+      },
+      {
+        "amount": "4",
+        "unit": "scallions",
+        "item": "chopped"
+      },
+      {
+        "amount": "1",
+        "unit": "tbsp",
+        "item": "fish sauce"
+      },
+      {
+        "amount": "1",
+        "unit": "tsp",
+        "item": "sugar"
+      }
+    ],
+    "instructions": [
+      "Chop cabbage into 2-inch pieces",
+      "Dissolve salt in 8 cups water, submerge cabbage for 2 hours",
+      "Drain cabbage and rinse 3 times",
+      "Mix gochugaru, garlic, ginger, fish sauce, and sugar into a paste",
+      "Massage paste into cabbage along with scallions",
+      "Pack tightly into a clean jar, leaving 1 inch headspace",
+      "Weight down with a small jar or fermentation weight",
+      "Cover with cloth and ferment at room temperature 3-5 days",
+      "Taste daily until desired sourness is reached",
+      "Refrigerate to slow fermentation"
+    ],
+    "dateAdded": "2025-08-25T11:12:59.091Z",
+    "prepTime": 45,
+    "servings": 6,
+    "category": "Fermented Foods",
+    "tags": [
+      "fermented",
+      "spicy",
+      "probiotics",
+      "korean"
+    ]
+  },
+  {
+    "id": "3",
+    "title": "Cold-Pressed Coffee",
+    "description": "Smooth, concentrate coffee made without heat",
+    "image": "https://images.unsplash.com/photo-1611477948234-a3c27435c72b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2xkJTIwYnJldyUyMGNvZmZlZSUyMGdsYXNzfGVufDF8fHx8MTc1NjA1NTA0Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+    "ingredients": [
+      {
+        "amount": "1",
+        "unit": "cup",
+        "item": "coarsely ground coffee"
+      },
+      {
+        "amount": "4",
+        "unit": "cups",
+        "item": "filtered water"
+      },
+      {
+        "amount": "1",
+        "unit": "cup",
+        "item": "milk or water",
+        "notes": "for serving"
+      },
+      {
+        "amount": "2",
+        "unit": "tbsp",
+        "item": "simple syrup",
+        "notes": "optional"
+      }
+    ],
+    "instructions": [
+      "Combine coffee grounds and water in a large jar",
+      "Stir well to ensure all grounds are saturated",
+      "Cover and steep at room temperature for 12-24 hours",
+      "Strain through a fine-mesh sieve lined with cheesecloth",
+      "Store concentrate in refrigerator for up to 1 week",
+      "To serve: mix 1:1 with milk or water over ice",
+      "Sweeten with simple syrup if desired"
+    ],
+    "dateAdded": "2025-08-25T11:12:59.091Z",
+    "prepTime": 5,
+    "servings": 4,
+    "category": "Beverages",
+    "tags": [
+      "coffee",
+      "cold-brew",
+      "concentrate"
+    ]
+  },
+  {
+    "id": "4",
+    "title": "Herb-Infused Salt",
+    "description": "Preserve garden herbs in flaky sea salt",
+    "image": "https://images.unsplash.com/photo-1558960589-06934b614a27?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoZXJiJTIwc2FsdCUyMHNlYXNvbmluZ3xlbnwxfHx8fDE3NTYwNjc4ODV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "ingredients": [
+      {
+        "amount": "2",
+        "unit": "cups",
+        "item": "flaky sea salt"
+      },
+      {
+        "amount": "1/2",
+        "unit": "cup",
+        "item": "fresh rosemary, chopped"
+      },
+      {
+        "amount": "1/4",
+        "unit": "cup",
+        "item": "fresh thyme leaves"
+      },
+      {
+        "amount": "2",
+        "unit": "tbsp",
+        "item": "fresh oregano, chopped"
+      },
+      {
+        "amount": "1",
+        "unit": "tbsp",
+        "item": "black peppercorns"
+      }
+    ],
+    "instructions": [
+      "Preheat oven to 200°F",
+      "Spread salt on a large baking sheet",
+      "Sprinkle herbs evenly over salt",
+      "Bake for 2 hours, stirring every 30 minutes",
+      "Let cool completely",
+      "Transfer to a food processor and pulse 10-15 times",
+      "Sift through a fine-mesh strainer to remove large pieces",
+      "Store in airtight containers for up to 6 months",
+      "Use on roasted vegetables, meat, or finishing dishes"
+    ],
+    "dateAdded": "2025-08-25T11:12:59.091Z",
+    "prepTime": 15,
+    "cookTime": 120,
+    "servings": 8,
+    "category": "Seasonings",
+    "tags": [
+      "herbs",
+      "seasoning",
+      "preserved"
+    ]
+  },
+  {
+    "id": "5",
+    "title": "Homemade Pasta",
+    "description": "Simple egg pasta made from scratch",
+    "image": "https://images.unsplash.com/photo-1513553016575-0ccd93e15315?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcmVzaCUyMHBhc3RhJTIwbWFraW5nfGVufDF8fHx8MTc1NjA2Nzg4NXww&ixlib=rb-4.1.0&q=80&w=1080",
+    "ingredients": [
+      {
+        "amount": "2",
+        "unit": "cups",
+        "item": "00 flour or all-purpose flour"
+      },
+      {
+        "amount": "3",
+        "unit": "large",
+        "item": "eggs"
+      },
+      {
+        "amount": "1",
+        "unit": "tbsp",
+        "item": "olive oil"
+      },
+      {
+        "amount": "1",
+        "unit": "tsp",
+        "item": "salt"
+      },
+      {
+        "amount": "2-4",
+        "unit": "tbsp",
+        "item": "semolina flour",
+        "notes": "for dusting"
+      }
+    ],
+    "instructions": [
+      "Create a well with flour on a clean work surface",
+      "Crack eggs into the center and add oil and salt",
+      "Beat eggs with a fork, gradually incorporating flour",
+      "Knead dough for 8-10 minutes until smooth and elastic",
+      "Wrap in plastic and rest for 30 minutes",
+      "Divide into 4 portions and roll each very thin",
+      "Cut into desired shapes (fettuccine, linguine, etc.)",
+      "Dust with semolina to prevent sticking",
+      "Cook in salted boiling water for 2-3 minutes",
+      "Serve immediately with your favorite sauce"
+    ],
+    "dateAdded": "2025-08-25T11:12:59.091Z",
+    "prepTime": 60,
+    "cookTime": 5,
+    "servings": 4,
+    "category": "Pasta & Noodles",
+    "tags": [
+      "italian",
+      "handmade",
+      "fresh"
+    ]
+  },
+  {
+    "id": "6",
+    "title": "Pickled Vegetables",
+    "description": "Quick refrigerator pickles with customizable brine",
+    "image": "https://images.unsplash.com/photo-1610602925036-1d81bb50065a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwaWNrbGVkJTIwdmVnZXRhYmxlcyUyMGphcnN8ZW58MXx8fHwxNzU2MDY3ODg1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "ingredients": [
+      {
+        "amount": "2",
+        "unit": "cups",
+        "item": "mixed vegetables",
+        "notes": "carrots, cucumbers, radishes"
+      },
+      {
+        "amount": "1",
+        "unit": "cup",
+        "item": "white vinegar"
+      },
+      {
+        "amount": "1",
+        "unit": "cup",
+        "item": "water"
+      },
+      {
+        "amount": "2",
+        "unit": "tbsp",
+        "item": "sugar"
+      },
+      {
+        "amount": "1",
+        "unit": "tbsp",
+        "item": "salt"
+      },
+      {
+        "amount": "2",
+        "unit": "cloves",
+        "item": "garlic"
+      },
+      {
+        "amount": "1",
+        "unit": "tsp",
+        "item": "peppercorns"
+      },
+      {
+        "amount": "1",
+        "unit": "bay leaf",
+        "item": ""
+      }
+    ],
+    "instructions": [
+      "Cut vegetables into uniform pieces",
+      "Pack vegetables tightly into clean jars",
+      "Combine vinegar, water, sugar, and salt in a saucepan",
+      "Add garlic, peppercorns, and bay leaf",
+      "Bring to a boil and stir until sugar dissolves",
+      "Pour hot brine over vegetables, leaving 1/2 inch headspace",
+      "Let cool to room temperature",
+      "Refrigerate for at least 2 hours before eating",
+      "Will keep in refrigerator for up to 1 month"
+    ],
+    "dateAdded": "2025-08-25T11:12:59.091Z",
+    "prepTime": 20,
+    "cookTime": 10,
+    "servings": 8,
+    "category": "Preserved Foods",
+    "tags": [
+      "pickled",
+      "vegetables",
+      "quick"
+    ]
+  },
+  {
+    "title": "Fake Chickpea Tikka Masala",
+    "description": "easy peasy pantry recipe.",
+    "image": "",
+    "ingredients": [
+      {
+        "amount": "1",
+        "unit": "can",
+        "item": "chickpeas"
+      },
+      {
+        "amount": "1",
+        "unit": "jar",
+        "item": "tomato-based pasta sauce"
+      },
+      {
+        "amount": "1",
+        "unit": "can",
+        "item": "coconut milk"
+      },
+      {
+        "amount": "1",
+        "item": "onion"
+      },
+      {
+        "amount": "1",
+        "unit": "tbsp",
+        "item": "minced ginger",
+        "notes": "approx"
+      },
+      {
+        "amount": "1",
+        "unit": "tbsp",
+        "item": "minced garlic",
+        "notes": "approx"
+      },
+      {
+        "amount": "2",
+        "unit": "tsp",
+        "item": "garam masala"
+      },
+      {
+        "amount": "1",
+        "unit": "tsp",
+        "item": "cumin"
+      },
+      {
+        "amount": "1",
+        "unit": "tsp",
+        "item": "paprika"
+      },
+      {
+        "amount": "1/2",
+        "unit": "tsp",
+        "item": "turmeric"
+      }
+    ],
+    "instructions": [
+      "Dice onion, mince garlic and ginger (or use 1 tsp each of garlic powder and ground ginger)",
+      "Heat oil in large pan. Cook onion until soft, add garlic and ginger for 30 seconds",
+      "Add garam masala, cumin, paprika, turmeric. Stir until fragrant",
+      "Pour in your sauce, add 1/2 can coconut milk. Let it simmer and combine",
+      "Stir in chickpeas, let everything simmer together. Taste and adjust spices/salt",
+      "Add remaining coconut milk if you want it creamier. Serve over rice"
+    ],
+    "tags": [
+      "vegetarian"
+    ],
+    "tryThis": [
+      "Stir in a little butter at the end to make it extra rich"
+    ],
+    "id": "t03o896ap",
+    "dateAdded": "2025-08-25T15:04:38.736Z"
+  }
+]
